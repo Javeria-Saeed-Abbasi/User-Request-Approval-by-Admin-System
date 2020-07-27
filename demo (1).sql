@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2020 at 11:05 AM
+-- Generation Time: Jul 27, 2020 at 03:33 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -74,16 +74,18 @@ CREATE TABLE `requests` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `date` datetime NOT NULL
+  `date` datetime NOT NULL,
+  `status` varchar(255) DEFAULT 'Accepted'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `username`, `email`, `password`, `date`) VALUES
-(12, 'demo', 'demo@user.com', '123', '2020-07-27 08:53:56'),
-(15, 'demouser2', 'user2@demo.com', '123', '2020-07-27 14:02:08');
+INSERT INTO `requests` (`id`, `username`, `email`, `password`, `date`, `status`) VALUES
+(12, 'demo', 'demo@user.com', '123', '2020-07-27 08:53:56', 'created'),
+(15, 'demouser2', 'user2@demo.com', '123', '2020-07-27 14:02:08', 'created'),
+(16, 'user3', 'user3@demo.com', '123', '2020-07-27 18:10:57', 'Accepted');
 
 --
 -- Indexes for dumped tables
@@ -130,7 +132,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

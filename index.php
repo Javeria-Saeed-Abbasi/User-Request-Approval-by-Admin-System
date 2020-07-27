@@ -63,6 +63,7 @@
       <th scope="col">Accept</th>
       <th scope="col">Reject</th>
       <th scope="col">Date</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -73,6 +74,8 @@
       <td><a href="accept.php?id=<?php echo $row['id'] ?>" class="btn btn-primary my-2">Accept</a></td>
       <td><a href="reject.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary my-2">Reject</a></td>
       <td><small><i><?php echo $row['date'] ?></i></small></td>
+      <td><?php echo $row['status'] ?></td>
+
       
     </tr>
   </tbody>
