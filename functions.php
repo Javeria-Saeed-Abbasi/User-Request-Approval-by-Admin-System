@@ -17,6 +17,7 @@
 
     function fetchAll($query){
         $con = new PDO(DBINFO, DBUSER, DBPASS);
+        //statment
         $stmt = $con->query($query);
         return $stmt->fetchAll();
     }
