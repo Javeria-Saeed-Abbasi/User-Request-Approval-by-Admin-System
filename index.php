@@ -43,59 +43,14 @@
       </div>
     </header>
 
-    <main role="main">
-
-      <section class="jumbotron text-center">
-        <div class="container">
-            <?php
-            
-                $query = "select * from `requests`;";
-                if(count(fetchAll($query))>0){
-                    foreach(fetchAll($query) as $row){
-                        ?>
-                        <center>
-                        <table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Username</th>
-      <th scope="col">Email</th>
-      <th scope="col">Date</th>
-      <th scope="col">Status</th>
-      <th scope="col">Accept</th>
-      <th scope="col">Reject</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row"><?php echo $row['id'] ?></th>
-      <td><?php echo $row['username'] ?></td>
-      <td><?php echo $row['email'] ?></td>
-      <td><small><i><?php echo $row['date'] ?></i></small></td>
-      <td><button class="btn btn-success "><?php echo $row['status'] ?></button></td>
-      <td><a href="accept.php?id=<?php echo $row['id'] ?>" class="btn btn-primary my-2">Accept</a></td>
-      <td><a href="reject.php?id=<?php echo $row['id'] ?>" class="btn btn-secondary my-2">Reject</a></td>
-
-      
-    </tr>
-  </tbody>
-</table>
-                </center>
-            <?php
-                    }
-                }else{
-                    echo "No Pending Requests.";
-                }
-            ?>
-          
-        </div>
-          
-      </section>
-
-    </main>
+    <!-- Pending Requests -->
+<?php
+include("created.php");
+?>
 
 
-      
+
+
+
 </body>
 </html>

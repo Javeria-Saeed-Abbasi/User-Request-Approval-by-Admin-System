@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2020 at 03:33 PM
+-- Generation Time: Jul 28, 2020 at 09:03 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -42,7 +42,9 @@ CREATE TABLE `accounts` (
 
 INSERT INTO `accounts` (`id`, `username`, `email`, `password`, `date`) VALUES
 (1, 'jia', 'jiya@jia.com', '123', '2020-07-27 08:50:33'),
-(2, 'demo', 'demo@user.com', '123', '2020-07-27 08:57:22');
+(2, 'demo', 'demo@user.com', '123', '2020-07-27 08:57:22'),
+(4, 'user4', 'demo@user4.com', '123', '2020-07-27 19:29:39'),
+(7, 'user6', 'demo@user6.com', '123', '2020-07-28 23:12:43');
 
 -- --------------------------------------------------------
 
@@ -75,7 +77,7 @@ CREATE TABLE `requests` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `date` datetime NOT NULL,
-  `status` varchar(255) DEFAULT 'Accepted'
+  `status` varchar(255) DEFAULT 'created'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -83,9 +85,10 @@ CREATE TABLE `requests` (
 --
 
 INSERT INTO `requests` (`id`, `username`, `email`, `password`, `date`, `status`) VALUES
-(12, 'demo', 'demo@user.com', '123', '2020-07-27 08:53:56', 'created'),
-(15, 'demouser2', 'user2@demo.com', '123', '2020-07-27 14:02:08', 'created'),
-(16, 'user3', 'user3@demo.com', '123', '2020-07-27 18:10:57', 'Accepted');
+(17, 'user4', 'demo@user4.com', '123', '2020-07-27 18:55:56', 'Accepted'),
+(19, 'user5', 'user5@demo.com', '123', '2020-07-28 23:07:43', 'rejected'),
+(20, 'user6', 'demo@user6.com', '123', '2020-07-28 23:12:29', 'accepted'),
+(21, 'user7', 'user7@demo.com', '123', '2020-07-28 23:31:56', 'created');
 
 --
 -- Indexes for dumped tables
@@ -120,7 +123,7 @@ ALTER TABLE `requests`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `admin`
@@ -132,7 +135,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

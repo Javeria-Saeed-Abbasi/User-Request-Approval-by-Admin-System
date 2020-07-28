@@ -19,7 +19,19 @@
 </head>
 <body>
 <?php
-  //for users:
+// =====================  For rejected Requests User on login  =====================
+if(isset($_POST['signin'])){
+    $query = "SELECT * from `requests`;";
+    if(count(fetchAll($query)) > 0){ //this is to catch unknown error.
+          foreach(fetchAll($query) as $row){
+            if($row['status']=='rejected'){
+                echo "<script>alert('Your account has been rejected by admin.')</script>";
+            }
+        }
+    }
+}
+
+  //========================= For Registered users ==============================:
         if(isset($_POST['signin'])){
             $password = $_POST['password'];
             $username = $_POST['username'];
@@ -30,8 +42,9 @@
                         $_SESSION['login'] = true;
                         $_SESSION['username'] = $row['username'];
                         header('location:welcome.php');
-                    }else{
-                        echo "<script>alert('Wrong login details.')</script>";
+                    }
+                    else{
+                        echo "<script>alert('Your login details does not match.')</script>";
                     }
                 }
             }else{
@@ -39,7 +52,8 @@
             }
 
         }
-        //for admin
+
+// ============================= For admin ============================
         if(isset($_POST['signin'])){
           $password = $_POST['password'];
           $username = $_POST['username'];
